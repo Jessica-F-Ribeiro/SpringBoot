@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	Tamanho da lista:
+	<span th:text="${clientes.size()}"></span>
+	<table border="1">
+		<tr>
+			<th>Id</th>
+			<th>Nome</th>
+			<th>cpf</th>
+			<th>E-mail</th>
+			<th>Alterar</th>
+			<th>Excluir</th>
+		</tr>		
+		<tr th:each="c: ${clientes}">
+			<td th:text="${c.id}" />
+			<td th:text="${c.nome}" />
+			<td th:text="${c.cpf}" />
+			<td th:text="${c.email}" />
+			<td><a th:href="@{/alterarCliente(id=${c.id})}">Alterar</a></td>
+			<td><a th:href="@{/excluirCliente(id=${c.id})}">Excluir</a></td>
+		</tr>
+		
+	</table>
+</body>
+</html>

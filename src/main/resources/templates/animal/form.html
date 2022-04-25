@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	Cadastro de Animais
+	<form action="salvarAnimal" method="post" accept-charset="utf-8">
+		<input type="hidden" name="codigo">
+		<table>
+			<tr>
+				<td>Nome:</td>
+				<td><input type="text" name="nome" /></td>
+			</tr>
+			<tr>
+				<td>Raça:</td>
+				<td><input type="text" name="raca" /></td>
+			</tr>
+			<tr>
+				<td>Porte:</td>
+				<td><input type="text" name="porte" /></td>
+			</tr>
+			<tr>
+				<td>Espécie:</td>
+				<td><input type="text" name="especie" /></td>
+			</tr>
+			<tr>
+				<td>Cliente:</td>
+				<td>
+					<select name="cliente.id">
+						<option th:each="c: ${clientes}" th:text="${c.nome}" th:value="${c.id}" ></option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><button type="submit">Salvar</button></td>
+			</tr>
+			
+		</table>
+	</form>
+</body>
+</html>
